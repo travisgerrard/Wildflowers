@@ -1,0 +1,16 @@
+type Child {
+  id: ID! @id
+  firstName: String
+  lastName: String
+  signInOuts: [SignInOut]!
+}
+
+type SignInOut {
+  id: ID! @id
+  whoSignedIn: String!
+  whoSignedOut: String
+  signInTime: String!
+  signOutTime: String
+  signInDay: String!
+  child: Child
+}

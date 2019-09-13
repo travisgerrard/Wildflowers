@@ -1,0 +1,35 @@
+type Mutation {
+  createSignInOut(
+    signInTime: String!
+    signInDay: String!
+    whoSignedIn: String!
+    child: ID!
+  ): SignInOut!
+  updateSignInOut(
+    signOutTime: String!
+    whoSignedOut: String!
+    id: ID!
+  ): SignInOut!
+  createChild(firstName: String!, lastName: String!): Child!
+}
+
+type Query {
+  children: [Child]!
+}
+
+type Child {
+  id: ID!
+  firstName: String
+  lastName: String
+  signInOuts: [SignInOut]!
+}
+
+type SignInOut {
+  id: ID!
+  whoSignedIn: String!
+  whoSignedOut: String
+  signInTime: String!
+  signOutTime: String
+  signInDay: String!
+  child: Child
+}
